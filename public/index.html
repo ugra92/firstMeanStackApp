@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactsApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="assets/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div class="container" ng-controller="contactsApp">
+    <h3>Add Contacts</h3>
+    <table class="table bordered striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input type="text" class="form-control" ng-model="contact.name"/>
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model="contact.email"/>
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model="contact.number"/>
+            </td>
+            <td>
+                <button class="btn btn-primary" ng-click="addContact()">Add contact</button>
+                <button class="btn blue" ng-click="update(contact)">Update contact</button>
+            </td>
+        </tr>
+        <tr ng-repeat="contact in contactList">
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.number }}</td>
+            <td>
+                <button class="btn red" ng-click="remove(contact)"><i class="large material-icons">delete</i></button>
+                <button class="btn blue" ng-click="edit(contact._id)"><i class="large material-icons">visibility</i></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="assets/js/materialize.min.js"></script>
+<script src="controllers/contactController.js"></script>
+</body>
+</html>
